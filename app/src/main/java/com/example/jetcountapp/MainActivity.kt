@@ -3,6 +3,7 @@ package com.example.jetcountapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Button
@@ -14,6 +15,7 @@ import androidx.compose.ui.Modifier
 import com.example.jetcountapp.ui.theme.JetCountAppTheme
 
 class MainActivity : ComponentActivity() {
+    private val viewModel: CountViewModel by viewModels<CountViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -23,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    CountUp()
+                    CountUp(viewModel = viewModel)
                 }
             }
         }
@@ -31,14 +33,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun CountUp() {
-    var count by remember {
-        mutableStateOf(0)
-    }
+fun CountUp(viewModel: CountViewModel) {
+    val count: Int by viewModel.count
     
     Column {
         Text(text = "$count")
-        Button(onClick = { count += 1 }) {
+        Button(onClick = { viewModel.onCountUpTapped() }) {
             Text(text = "Count Up!")
         }
     }
