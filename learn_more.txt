@@ -1,0 +1,24 @@
+CountUpで使用する変数をどう定義するか？
+- 再代入可能なvarで定義？
+  - viewModel上での定義だから違うよね？
+  - xmlの時のActivityでの処理で定義するときは違和感があまりなかったけど変だよね
+- mutableStateで回数を保持する？
+  - nullか確認してからカウントを追加する
+    - 処理多い？多くない？分からん
+
+LiveDataとFlowどっちがいい？
+
+
+【参考文献】
+LiveDataをFlowにリプレースしてみて得た知見（StateFlow、SharedFlow、Channel）
+- https://qiita.com/yasukotelin/items/3a6afe861cc9345118d6
+Jetpack Composeの状態管理クラスを調べてみた
+- https://techblog.glpgs.com/entry/2022/08/29/165850
+LiveDataとStateFlowの違い
+- https://star-zero.medium.com/livedata%E3%81%A8stateflow%E3%81%AE%E9%81%95%E3%81%84-5c141c6eb0f9
+Jetpack Compose入門 アプリを作る知識-4(状態変更と保持~remember/Saveable/ViewModel)
+- https://zenn.dev/ko2ic/articles/2fff45bd160de7
+ViewModel の概要
+- https://developer.android.com/topic/libraries/architecture/viewmodel?hl=ja#lifecycle
+Kotlin Flow と LiveData を使用した高度なコルーチンの学習
+- https://developer.android.com/codelabs/advanced-kotlin-coroutines?hl=ja#0
